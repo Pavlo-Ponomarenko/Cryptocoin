@@ -4,21 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9abbfd5-fe0d-4df5-8400-cd2d7de83b53" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Block.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/CryptoKeyPair.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Signature.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Transaction.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/VIN.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/VOUT.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/utils/CryptoKeyGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/utils/PrivateKeyImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/utils/PublicKeyImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/utils/Signing.java" afterDir="false" />
+    <list default="true" id="c9abbfd5-fe0d-4df5-8400-cd2d7de83b53" name="Changes" comment="Signing - primal implementation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Hashable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/SignatureDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/utils/HashGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/utils/merkle_tree/BranchNode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/utils/merkle_tree/Leaf.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/utils/merkle_tree/Node.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Block.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Signature.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/VIN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/VIN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/VOUT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/VOUT.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +27,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -79,7 +79,13 @@
       <workItem from="1675790499179" duration="4973000" />
       <workItem from="1676652441696" duration="2202000" />
       <workItem from="1676742125458" duration="2222000" />
-      <workItem from="1676802022798" duration="4923000" />
+      <workItem from="1676802022798" duration="6498000" />
+      <workItem from="1676990360764" duration="131000" />
+      <workItem from="1676991697715" duration="8222000" />
+      <workItem from="1677057977751" duration="2872000" />
+      <workItem from="1677088474759" duration="1047000" />
+      <workItem from="1677519302084" duration="1433000" />
+      <workItem from="1677656652111" duration="326000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1675757190021</created>
@@ -88,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1675757190021</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Signing - primal implementation">
+      <created>1676819960496</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1676819960496</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,6 +120,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+    <MESSAGE value="Signing - primal implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Signing - primal implementation" />
   </component>
 </project>

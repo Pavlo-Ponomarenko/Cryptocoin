@@ -1,6 +1,36 @@
 package org.blockchain.dtos;
 
-public class VOUT {
+import org.blockchain.utils.HashGenerator;
+
+public class VOUT implements Hashable {
     private Long value;
     private String address;
+
+    public VOUT() {}
+
+    public VOUT(Long value, String address) {
+        this.value = value;
+        this.address = address;
+    }
+
+    public Long getValue() {
+        return value;
+    }
+
+    public void setValue(Long value) {
+        this.value = value;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    @Override
+    public String genHash() {
+        return HashGenerator.genHash256(value.toString() + address);
+    }
 }

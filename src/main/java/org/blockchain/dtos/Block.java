@@ -1,20 +1,41 @@
 package org.blockchain.dtos;
 
+import org.blockchain.utils.HashGenerator;
+
 import java.util.List;
 
-public class Block {
+public class Block implements Hashable {
+
+    private String hash;
     private String previousHash;
     private String merkleRoot;
     private String timeStamp;
     private Integer nonce;
     private List<Transaction> transactions;
 
-    public Block(String previousHash, String merkleRoot, String timeStamp, Integer nonce, List<Transaction> transactions) {
+
+    public Block() {
+    }
+
+    public Block(String hash, String previousHash, String merkleRoot, String timeStamp, Integer nonce, List<Transaction> transactions) {
+        this.hash = hash;
         this.previousHash = previousHash;
         this.merkleRoot = merkleRoot;
         this.timeStamp = timeStamp;
         this.nonce = nonce;
         this.transactions = transactions;
+    }
+
+    public String getHash() {
+        return hash;
+    }
+
+    public void setHash(String hash) {
+        this.hash = hash;
+    }
+
+    public void setHash() {
+
     }
 
     public String getPreviousHash() {
@@ -55,5 +76,15 @@ public class Block {
 
     public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
+    }
+
+    @Override
+    public String genHash() {
+        StringBuilder result = new StringBuilder();
+        result.append(getPreviousHash());
+        result.append(getMerkleRoot());
+        result.append(getTimeStamp());
+        result.append(getNonce());
+        return HashGenerator.genHash256(result.toString());
     }
 }

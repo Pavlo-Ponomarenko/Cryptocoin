@@ -1,7 +1,46 @@
 package org.blockchain.dtos;
 
-public class VIN {
+import org.blockchain.utils.HashGenerator;
+
+public class VIN implements Hashable {
     private String hash;
     private Integer index;
-    private Signature signature;
+    private SignatureDTO signature;
+
+    public VIN() {}
+
+    public VIN(String hash, Integer index, SignatureDTO signature) {
+        this.hash = hash;
+        this.index = index;
+        this.signature = signature;
+    }
+
+    public String getHash() {
+        return hash;
+    }
+
+    public void setHash(String hash) {
+        this.hash = hash;
+    }
+
+    public Integer getIndex() {
+        return index;
+    }
+
+    public void setIndex(Integer index) {
+        this.index = index;
+    }
+
+    public SignatureDTO getSignature() {
+        return signature;
+    }
+
+    public void setSignature(SignatureDTO signature) {
+        this.signature = signature;
+    }
+
+    @Override
+    public String genHash() {
+        return HashGenerator.genHash256(hash + index.toString() + signature.genHash());
+    }
 }
