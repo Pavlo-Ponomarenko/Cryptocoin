@@ -1,28 +1,30 @@
-package org.blockchain.dtos;
+package org.blockchain.entities;
 
-import org.blockchain.utils.HashGenerator;
-import org.blockchain.utils.merkle_tree.MerkleTree;
+import org.blockchain.dtos.Transaction;
 
+import javax.persistence.*;
 import java.util.List;
 
-public class Block implements Hashable {
+@Entity
+@Table(name = "blocks")
+public class BlockRecord {
 
+    @Id
     private String hash;
     private String previousHash;
     private String merkleRoot;
     private String timeStamp;
     private Integer nonce;
-    private List<Transaction> transactions;
+    @OneToMany
+    private List<TransactionRecord> transactions;
 
-
-    public Block() {
+    public BlockRecord() {
     }
 
-    public Block(String hash, String previousHash, String timeStamp, Integer nonce, List<Transaction> transactions) {
+    public BlockRecord(String hash, String previousHash, String merkleRoot, String timeStamp, Integer nonce, List<TransactionRecord> transactions) {
         this.hash = hash;
         this.previousHash = previousHash;
-        MerkleTree<Transaction> tree = new MerkleTree<>(transactions);
-        this.merkleRoot = tree.getRootHash();
+        this.merkleRoot = merkleRoot;
         this.timeStamp = timeStamp;
         this.nonce = nonce;
         this.transactions = transactions;
@@ -34,10 +36,6 @@ public class Block implements Hashable {
 
     public void setHash(String hash) {
         this.hash = hash;
-    }
-
-    public void setHash() {
-
     }
 
     public String getPreviousHash() {
@@ -72,22 +70,11 @@ public class Block implements Hashable {
         this.nonce = nonce;
     }
 
-    public List<Transaction> getTransactions() {
+    public List<TransactionRecord> getTransactions() {
         return transactions;
     }
 
-    public void setTransactions(List<Transaction> transactions) {
+    public void setTransactions(List<TransactionRecord> transactions) {
         this.transactions = transactions;
-        MerkleTree<Transaction> tree = new MerkleTree<>(transactions);
-    }
-
-    @Override
-    public String genHash() {
-        StringBuilder result = new StringBuilder();
-        result.append(getPreviousHash());
-        result.append(getMerkleRoot());
-        result.append(getTimeStamp());
-        result.append(getNonce());
-        return HashGenerator.genHash256(result.toString());
     }
 }

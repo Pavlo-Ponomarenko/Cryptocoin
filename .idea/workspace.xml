@@ -4,20 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9abbfd5-fe0d-4df5-8400-cd2d7de83b53" name="Changes" comment="Signing - primal implementation">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Hashable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/SignatureDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/utils/HashGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/utils/merkle_tree/BranchNode.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/utils/merkle_tree/Leaf.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/utils/merkle_tree/Node.java" afterDir="false" />
+    <list default="true" id="c9abbfd5-fe0d-4df5-8400-cd2d7de83b53" name="Changes" comment="Merkle tree implementation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/BlockRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/TransactionRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/VINRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/VOUTRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/create_primal_tables.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/master.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Block.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Signature.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Transaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/VIN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/VIN.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/VOUT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/VOUT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/utils/merkle_tree/MerkleTree.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/utils/merkle_tree/MerkleTree.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +27,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Liquibase Changelog" />
       </list>
     </option>
   </component>
@@ -85,7 +84,11 @@
       <workItem from="1677057977751" duration="2872000" />
       <workItem from="1677088474759" duration="1047000" />
       <workItem from="1677519302084" duration="1433000" />
-      <workItem from="1677656652111" duration="326000" />
+      <workItem from="1677656652111" duration="8284000" />
+      <workItem from="1677742591159" duration="3768000" />
+      <workItem from="1677944448594" duration="1900000" />
+      <workItem from="1678001911519" duration="3022000" />
+      <workItem from="1678045460580" duration="6122000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1675757190021</created>
@@ -101,7 +104,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676819960496</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Merkle tree implementation">
+      <created>1677657243815</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1677657243815</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,6 +131,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Signing - primal implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Signing - primal implementation" />
+    <MESSAGE value="Merkle tree implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merkle tree implementation" />
   </component>
 </project>

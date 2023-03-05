@@ -6,16 +6,16 @@ import org.blockchain.utils.HashGenerator;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MerkleTree {
+public class MerkleTree<T extends Hashable> {
 
     private BranchNode root;
 
-    public MerkleTree(List<Hashable> hashableItems) {
+    public MerkleTree(List<T> hashableItems) {
         buildTree(hashableItems);
     }
 
-    public String buildTree(List<Hashable> hashableItems) {
-        List<Hashable> items = hashableItems.stream().toList();
+    public String buildTree(List<T> hashableItems) {
+        List<T> items = hashableItems.stream().toList();
         List<Node> nodes = new ArrayList<Node>();
         for (Hashable i : items) {
             nodes.add(new Leaf(i));
