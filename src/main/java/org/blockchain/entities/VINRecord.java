@@ -1,13 +1,9 @@
 package org.blockchain.entities;
 
-import org.blockchain.dtos.SignatureDTO;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "vin")
@@ -29,16 +25,19 @@ public class VINRecord {
     private Integer index;
     private String signature;
     private String key;
+    @ManyToOne
+    private TransactionRecord transaction;
 
     public VINRecord() {
     }
 
-    public VINRecord(Long id, String hash, Integer index, String signature, String key) {
+    public VINRecord(Long id, String hash, Integer index, String signature, String key, TransactionRecord transaction) {
         this.id = id;
         this.hash = hash;
         this.index = index;
         this.signature = signature;
         this.key = key;
+        this.transaction = transaction;
     }
 
     public Long getId() {
@@ -79,5 +78,13 @@ public class VINRecord {
 
     public void setKey(String key) {
         this.key = key;
+    }
+
+    public TransactionRecord getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(TransactionRecord transaction) {
+        this.transaction = transaction;
     }
 }

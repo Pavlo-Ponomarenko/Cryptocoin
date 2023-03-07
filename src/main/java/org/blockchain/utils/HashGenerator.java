@@ -14,4 +14,15 @@ public class HashGenerator {
             throw new RuntimeException(ex);
         }
     }
+
+    public static String keyToAddress(String key) {
+        byte[] bytes = (new BigInteger(key, 16)).toByteArray();
+        try {
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            byte[] hashBytes = md.digest(bytes);
+            return (new BigInteger(hashBytes)).toString(16);
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
+    }
 }

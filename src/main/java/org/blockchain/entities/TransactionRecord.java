@@ -1,7 +1,5 @@
 package org.blockchain.entities;
 
-import org.blockchain.dtos.VIN;
-import org.blockchain.dtos.VOUT;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
@@ -27,14 +25,17 @@ public class TransactionRecord {
     private List<VINRecord> vins;
     @OneToMany(mappedBy = "transaction")
     private List<VOUTRecord> vouts;
+    @ManyToOne
+    private BlockRecord block;
 
     public TransactionRecord() {
     }
 
-    public TransactionRecord(Long id, List<VINRecord> vins, List<VOUTRecord> vouts) {
+    public TransactionRecord(Long id, List<VINRecord> vins, List<VOUTRecord> vouts, BlockRecord block) {
         this.id = id;
         this.vins = vins;
         this.vouts = vouts;
+        this.block = block;
     }
 
     public void setId(Long id) {
@@ -59,5 +60,13 @@ public class TransactionRecord {
 
     public void setVouts(List<VOUTRecord> vouts) {
         this.vouts = vouts;
+    }
+
+    public BlockRecord getBlock() {
+        return block;
+    }
+
+    public void setBlock(BlockRecord block) {
+        this.block = block;
     }
 }
