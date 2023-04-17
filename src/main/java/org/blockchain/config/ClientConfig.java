@@ -1,6 +1,6 @@
 package org.blockchain.config;
 
-import org.blockchain.network.Client;
+import org.blockchain.client.Client;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 

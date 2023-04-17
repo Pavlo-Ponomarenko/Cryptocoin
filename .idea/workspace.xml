@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9abbfd5-fe0d-4df5-8400-cd2d7de83b53" name="Changes" comment="Repository implementation">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/config/ClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/network/Client.java" afterDir="false" />
+    <list default="true" id="c9abbfd5-fe0d-4df5-8400-cd2d7de83b53" name="Changes" comment="Becoming and resending transactions">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/client/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/client/TransactionQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/controllers/TransactionController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/repository/TransationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/repository/TransactionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/config/ClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/config/ClientConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/network/Client.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +102,7 @@
       <workItem from="1678087887464" duration="5177000" />
       <workItem from="1678220558048" duration="4525000" />
       <workItem from="1679685248358" duration="16000" />
-      <workItem from="1681716705929" duration="5827000" />
+      <workItem from="1681716705929" duration="9693000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1675757190021</created>
@@ -137,7 +139,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678224996097</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Reading clients addresses from app arguments">
+      <created>1681747299738</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1681747299738</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +169,8 @@
     <MESSAGE value="Merkle tree implementation" />
     <MESSAGE value="Changesets are added" />
     <MESSAGE value="Repository implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="Repository implementation" />
+    <MESSAGE value="Reading clients addresses from app arguments" />
+    <MESSAGE value="Becoming and resending transactions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Becoming and resending transactions" />
   </component>
 </project>
