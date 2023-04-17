@@ -4,23 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9abbfd5-fe0d-4df5-8400-cd2d7de83b53" name="Changes" comment="Changesets are added">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/repository/BlockRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/repository/TransationRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/repository/VINRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/repository/VOUTRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.yaml" afterDir="false" />
+    <list default="true" id="c9abbfd5-fe0d-4df5-8400-cd2d7de83b53" name="Changes" comment="Repository implementation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/config/ClientConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/network/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/TransactionRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/TransactionRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/VINRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/VINRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/VOUTRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/VOUTRecord.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/utils/HashGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/utils/HashGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/create_primal_tables.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/create_primal_tables.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/master.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/blockchain/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/repository/TransationRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/repository/TransactionRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +19,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Liquibase Changelog" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -57,26 +45,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/react/Desktop/Дипломна/Cryptocoin/target/Cryptocoin-1.0-SNAPSHOT.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "spring.configuration.checksum": "4e5a8bafadbd25eeda243ff00792adf5",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/react/Desktop/Дипломна/Cryptocoin/target/Cryptocoin-1.0-SNAPSHOT.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;4e5a8bafadbd25eeda243ff00792adf5&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Unnamed" type="JarApplication" nameIsGenerated="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/Cryptocoin-1.0-SNAPSHOT.jar" />
@@ -110,7 +98,9 @@
       <workItem from="1678001911519" duration="3022000" />
       <workItem from="1678045460580" duration="6312000" />
       <workItem from="1678087887464" duration="5177000" />
-      <workItem from="1678220558048" duration="4019000" />
+      <workItem from="1678220558048" duration="4525000" />
+      <workItem from="1679685248358" duration="16000" />
+      <workItem from="1681716705929" duration="5827000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1675757190021</created>
@@ -140,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1678053377382</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Repository implementation">
+      <created>1678224996097</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1678224996097</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,6 +159,7 @@
     <MESSAGE value="Signing - primal implementation" />
     <MESSAGE value="Merkle tree implementation" />
     <MESSAGE value="Changesets are added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changesets are added" />
+    <MESSAGE value="Repository implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Repository implementation" />
   </component>
 </project>
