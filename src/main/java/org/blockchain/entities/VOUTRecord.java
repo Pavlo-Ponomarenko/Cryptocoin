@@ -22,17 +22,14 @@ public class VOUTRecord {
     private Long id;
     private Long value;
     private String address;
-    @ManyToOne
-    private TransactionRecord transaction;
 
     public VOUTRecord() {
     }
 
-    public VOUTRecord(Long id, Long value, String address, TransactionRecord transaction) {
+    public VOUTRecord(Long id, Long value, String address) {
         this.id = id;
         this.value = value;
         this.address = address;
-        this.transaction = transaction;
     }
 
     public Long getId() {
@@ -57,13 +54,5 @@ public class VOUTRecord {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public TransactionRecord getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(TransactionRecord transaction) {
-        this.transaction = transaction;
     }
 }

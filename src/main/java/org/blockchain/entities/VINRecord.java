@@ -25,19 +25,16 @@ public class VINRecord {
     private Integer index;
     private String signature;
     private String key;
-    @ManyToOne
-    private TransactionRecord transaction;
 
     public VINRecord() {
     }
 
-    public VINRecord(Long id, String hash, Integer index, String signature, String key, TransactionRecord transaction) {
+    public VINRecord(Long id, String hash, Integer index, String signature, String key) {
         this.id = id;
         this.hash = hash;
         this.index = index;
         this.signature = signature;
         this.key = key;
-        this.transaction = transaction;
     }
 
     public Long getId() {
@@ -78,13 +75,5 @@ public class VINRecord {
 
     public void setKey(String key) {
         this.key = key;
-    }
-
-    public TransactionRecord getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(TransactionRecord transaction) {
-        this.transaction = transaction;
     }
 }

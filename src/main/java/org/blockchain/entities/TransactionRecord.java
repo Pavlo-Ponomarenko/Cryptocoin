@@ -25,17 +25,14 @@ public class TransactionRecord {
     private List<VINRecord> vins;
     @OneToMany(mappedBy = "transaction")
     private List<VOUTRecord> vouts;
-    @ManyToOne
-    private BlockRecord block;
 
     public TransactionRecord() {
     }
 
-    public TransactionRecord(Long id, List<VINRecord> vins, List<VOUTRecord> vouts, BlockRecord block) {
+    public TransactionRecord(Long id, List<VINRecord> vins, List<VOUTRecord> vouts) {
         this.id = id;
         this.vins = vins;
         this.vouts = vouts;
-        this.block = block;
     }
 
     public void setId(Long id) {
@@ -60,13 +57,5 @@ public class TransactionRecord {
 
     public void setVouts(List<VOUTRecord> vouts) {
         this.vouts = vouts;
-    }
-
-    public BlockRecord getBlock() {
-        return block;
-    }
-
-    public void setBlock(BlockRecord block) {
-        this.block = block;
     }
 }

@@ -33,4 +33,10 @@ public class VOUT implements Hashable {
     public String genHash() {
         return HashGenerator.genHash256(value.toString() + address);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        VOUT vout2 = (VOUT) o;
+        return value.equals(vout2.value) && address.equals(vout2.address);
+    }
 }

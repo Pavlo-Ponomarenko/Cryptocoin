@@ -5,12 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c9abbfd5-fe0d-4df5-8400-cd2d7de83b53" name="Changes" comment="Becoming and resending transactions">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/client/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/client/TransactionQueue.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/controllers/TransactionController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/client/BlockProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/converters/Converter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/converters/TransactionConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/converters/TransactionConverterImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/AccountRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/FreeVOUTRecord.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/repository/AccountRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/repository/FreeVOUTRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/services/BlockService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/services/TransactionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/client/TransactionQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/client/TransactionQueue.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/config/ClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/config/ClientConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/network/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/SignatureDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/SignatureDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/VIN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/VIN.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/VOUT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/VOUT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/TransactionRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/TransactionRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/VINRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/VINRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/VOUTRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/entities/VOUTRecord.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/repository/TransactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/repository/TransactionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/create_primal_tables.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/create_primal_tables.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +74,10 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;4e5a8bafadbd25eeda243ff00792adf5&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -102,7 +122,17 @@
       <workItem from="1678087887464" duration="5177000" />
       <workItem from="1678220558048" duration="4525000" />
       <workItem from="1679685248358" duration="16000" />
-      <workItem from="1681716705929" duration="9693000" />
+      <workItem from="1681716705929" duration="11172000" />
+      <workItem from="1681889873173" duration="6683000" />
+      <workItem from="1681997090082" duration="4870000" />
+      <workItem from="1683136504894" duration="1430000" />
+      <workItem from="1683179810300" duration="14293000" />
+      <workItem from="1683488567635" duration="10590000" />
+      <workItem from="1683611516421" duration="1335000" />
+      <workItem from="1683740344888" duration="6637000" />
+      <workItem from="1683786985802" duration="452000" />
+      <workItem from="1683831004736" duration="615000" />
+      <workItem from="1684130221565" duration="8029000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1675757190021</created>
@@ -146,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681747299738</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Becoming and resending transactions">
+      <created>1681759515365</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1681759515365</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -4,29 +4,19 @@ import org.blockchain.utils.HashGenerator;
 
 public class SignatureDTO implements Hashable {
 
-    private String message;
     private String signature;
     private String key;
 
     public SignatureDTO() {}
 
-    public SignatureDTO(String message, String signature, String key) {
-        this.message = message;
+    public SignatureDTO(String signature, String key) {
         this.signature = signature;
         this.key = key;
     }
 
     @Override
     public String genHash() {
-        return HashGenerator.genHash256(message + signature + key);
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+        return HashGenerator.genHash256(signature + key);
     }
 
     public String getSignature() {

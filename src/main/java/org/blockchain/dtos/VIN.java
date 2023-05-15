@@ -2,6 +2,8 @@ package org.blockchain.dtos;
 
 import org.blockchain.utils.HashGenerator;
 
+import java.util.Objects;
+
 public class VIN implements Hashable {
     private String hash;
     private Integer index;
@@ -42,5 +44,11 @@ public class VIN implements Hashable {
     @Override
     public String genHash() {
         return HashGenerator.genHash256(hash + index.toString() + signature.genHash());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        VIN vin2 = (VIN) o;
+        return hash.equals(vin2.getHash()) && index.equals(vin2.getIndex()) && signature.equals(vin2.getSignature());
     }
 }
