@@ -1,8 +1,7 @@
 package org.blockchain.entities;
 
-import org.blockchain.dtos.Transaction;
-
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -13,7 +12,7 @@ public class BlockRecord {
     private String hash;
     private String previousHash;
     private String merkleRoot;
-    private String timeStamp;
+    private LocalDateTime timeStamp;
     private Integer nonce;
     @OneToMany
     private List<TransactionRecord> transactions;
@@ -21,13 +20,17 @@ public class BlockRecord {
     public BlockRecord() {
     }
 
-    public BlockRecord(String hash, String previousHash, String merkleRoot, String timeStamp, Integer nonce, List<TransactionRecord> transactions) {
+    public BlockRecord(String hash, String previousHash, String merkleRoot, Integer nonce, List<TransactionRecord> transactions) {
         this.hash = hash;
         this.previousHash = previousHash;
         this.merkleRoot = merkleRoot;
-        this.timeStamp = timeStamp;
         this.nonce = nonce;
         this.transactions = transactions;
+    }
+
+    public BlockRecord(String hash, String previousHash, String merkleRoot, LocalDateTime timeStamp, Integer nonce, List<TransactionRecord> transactions) {
+        this(hash, previousHash, merkleRoot, nonce, transactions);
+        this.timeStamp = timeStamp;
     }
 
     public String getHash() {
@@ -54,11 +57,11 @@ public class BlockRecord {
         this.merkleRoot = merkleRoot;
     }
 
-    public String getTimeStamp() {
+    public LocalDateTime getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(String timeStamp) {
+    public void setTimeStamp(LocalDateTime timeStamp) {
         this.timeStamp = timeStamp;
     }
 

@@ -14,6 +14,7 @@ import java.util.concurrent.Executors;
 public class ClientConfig {
 
     public static final int transactionsInBlock = 3;
+    public static final String mining_difficulty = "00000FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF";
 
     @Value("${addresses}")
     private String otherClientsAddresses;

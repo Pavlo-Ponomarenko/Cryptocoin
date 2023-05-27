@@ -21,6 +21,14 @@ public class TransactionQueue {
         }
     }
 
+    public synchronized void returnTransactions(List<Transaction> transactions) {
+        mempool.addAll(transactions);
+    }
+
+    public synchronized void removeAll(List<Transaction> transactions) {
+        mempool.removeAll(transactions);
+    }
+
     public int getSize() {
         return mempool.size();
     }

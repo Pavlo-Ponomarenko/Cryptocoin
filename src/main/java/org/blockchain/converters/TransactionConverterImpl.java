@@ -18,6 +18,7 @@ public class TransactionConverterImpl implements TransactionConverter {
     @Override
     public TransactionRecord fromDTOtoEntity(Transaction transaction) {
         TransactionRecord transactionRecord = new TransactionRecord();
+        transactionRecord.setHash(transaction.genHash());
         List<VINRecord> vinRecords = new ArrayList<>();
         for (VIN vin : transaction.getVins()) {
             SignatureDTO signatureDTO = vin.getSignature();

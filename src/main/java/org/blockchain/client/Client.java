@@ -1,5 +1,6 @@
 package org.blockchain.client;
 
+import org.blockchain.dtos.Block;
 import org.blockchain.dtos.Transaction;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -24,6 +25,14 @@ public class Client {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Transaction> requestEntity = new HttpEntity<>(transaction, headers);
-        return restTemplate.postForEntity(address, requestEntity, String.class);
+        return restTemplate.postForEntity(address + "/send_transaction", requestEntity, String.class);
+    }
+
+    public ResponseEntity<String> sendBlock(Block block) {
+        RestTemplate restTemplate = new RestTemplate();
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Block> requestEntity = new HttpEntity<>(block, headers);
+        return restTemplate.postForEntity(address + "/send_block", requestEntity, String.class);
     }
 }

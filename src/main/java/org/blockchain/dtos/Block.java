@@ -18,14 +18,17 @@ public class Block implements Hashable {
     public Block() {
     }
 
-    public Block(String hash, String previousHash, String timeStamp, Integer nonce, List<Transaction> transactions) {
+    public Block(String hash, String previousHash, String merkleRoot, String timeStamp, Integer nonce, List<Transaction> transactions) {
         this.hash = hash;
         this.previousHash = previousHash;
-        MerkleTree<Transaction> tree = new MerkleTree<>(transactions);
-        this.merkleRoot = tree.getRootHash();
+        this.merkleRoot = merkleRoot;
         this.timeStamp = timeStamp;
         this.nonce = nonce;
         this.transactions = transactions;
+    }
+
+    public Block(String hash, String previousHash, String timeStamp, Integer nonce, List<Transaction> transactions) {
+        this(hash, previousHash, new MerkleTree<>(transactions).getRootHash(), timeStamp, nonce, transactions);
     }
 
     public String getHash() {
@@ -56,6 +59,10 @@ public class Block implements Hashable {
         this.merkleRoot = merkleRoot;
     }
 
+    public void setMerkleRoot(List<Transaction> transactions) {
+        merkleRoot = new MerkleTree<>(transactions).getRootHash();
+    }
+
     public String getTimeStamp() {
         return timeStamp;
     }
@@ -78,7 +85,6 @@ public class Block implements Hashable {
 
     public void setTransactions(List<Transaction> transactions) {
         this.transactions = transactions;
-        MerkleTree<Transaction> tree = new MerkleTree<>(transactions);
     }
 
     @Override

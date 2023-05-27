@@ -20,7 +20,7 @@ public class TransactionController {
     private TransactionQueue transactionQueue;
 
     @PostMapping("send_transaction")
-    public ResponseEntity<Void> becomeTransaction(@RequestBody Transaction transaction) {
+    public ResponseEntity<Void> receiveTransaction(@RequestBody Transaction transaction) {
         transactionQueue.addTransaction(transaction);
         for (Client client : clientConfig.getOtherClients()) {
             client.sendTransaction(transaction);

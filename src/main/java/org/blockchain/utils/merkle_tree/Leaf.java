@@ -2,7 +2,7 @@ package org.blockchain.utils.merkle_tree;
 
 import org.blockchain.dtos.Hashable;
 
-public class Leaf implements Node {
+class Leaf implements Node {
 
     private Hashable obj;
 

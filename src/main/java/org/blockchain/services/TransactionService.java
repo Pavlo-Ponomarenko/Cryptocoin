@@ -72,4 +72,8 @@ public class TransactionService {
         TransactionRecord transactionRecord = transactionConverter.fromDTOtoEntity(transaction);
         transactionRepository.save(transactionRecord);
     }
+
+    public TransactionRecord getTransactionRecord(String hash) {
+        return transactionRepository.getById(hash);
+    }
 }
