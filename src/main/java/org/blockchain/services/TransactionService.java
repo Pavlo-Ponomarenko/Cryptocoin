@@ -56,9 +56,6 @@ public class TransactionService {
         }
         long voutSum = 0l;
         for (VOUT vout : transaction.getVouts()) {
-            if (!accountRepository.existsById(vout.getAddress())) {
-                return false;
-            }
             voutSum += vout.getValue();
         }
         if (voutSum > vinSum) {

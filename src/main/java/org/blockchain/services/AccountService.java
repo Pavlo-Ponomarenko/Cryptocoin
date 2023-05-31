@@ -3,6 +3,7 @@ package org.blockchain.services;
 import org.blockchain.entities.*;
 import org.blockchain.repository.AccountRepository;
 import org.blockchain.repository.FreeVOUTRepository;
+import org.blockchain.repository.VOUTRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,8 @@ public class AccountService {
     private AccountRepository accountRepository;
     @Autowired
     private FreeVOUTRepository freeVOUTRepository;
+    @Autowired
+    private VOUTRepository voutRepository;
     @Autowired
     private BlockService blockService;
     @Autowired
@@ -47,9 +50,25 @@ public class AccountService {
         if (newActualBlock != null) {
             List<FreeVOUTRecord> newFreeVOUTs = getNewFreeVOUTs(newActualBlock).stream().map(FreeVOUTRecord::new).toList();
             freeVOUTRepository.saveAll(newFreeVOUTs);
+            for (FreeVOUTRecord freeVOUT : newFreeVOUTs) {
+                VOUTRecord vout = voutRepository.getById(freeVOUT.getId());
+                String address = vout.getAddress();
+                AccountRecord accountRecord = new AccountRecord(address, 0l);
+                if (accountRepository.existsById(address)) {
+                    accountRecord.setValue(accountRepository.getById(address).getValue());
+                }
+                accountRecord.setValue(accountRecord.getValue() + vout.getValue());
+                accountRepository.save(accountRecord);
+            }
             List<FreeVOUTRecord> usedVOUTs = getUsedVOUTs(newActualBlock).stream().map(FreeVOUTRecord::new).toList();
             freeVOUTRepository.deleteAll(usedVOUTs);
-
+            for (FreeVOUTRecord usedVOUT : usedVOUTs) {
+                VOUTRecord vout = voutRepository.getById(usedVOUT.getId());
+                String address = vout.getAddress();
+                AccountRecord accountRecord = accountRepository.getById(address);
+                accountRecord.setValue(accountRecord.getValue() - vout.getValue());
+                accountRepository.save(accountRecord);
+            }
         }
     }
 }

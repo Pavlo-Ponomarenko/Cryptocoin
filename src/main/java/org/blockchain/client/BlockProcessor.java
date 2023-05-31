@@ -4,6 +4,7 @@ import org.blockchain.config.ClientConfig;
 import org.blockchain.converters.DateConverter;
 import org.blockchain.dtos.Block;
 import org.blockchain.dtos.Transaction;
+import org.blockchain.services.AccountService;
 import org.blockchain.services.BlockService;
 import org.blockchain.services.TransactionService;
 import org.blockchain.utils.HashGenerator;
@@ -26,6 +27,8 @@ public class BlockProcessor {
     private TransactionQueue transactionQueue;
     @Autowired
     private TransactionService transactionService;
+    @Autowired
+    private AccountService accountService;
     @Autowired
     private BlockService blockService;
     @Autowired
@@ -64,9 +67,11 @@ public class BlockProcessor {
             client.sendBlock(block);
         }
         blockService.addBlock(block);
+        accountService.updateAccounts();
     }
 
     public void run() {
+        System.out.println("Blocks processing starts");
         while (true) {
             if (transactionQueue.getSize() >= ClientConfig.transactionsInBlock && blockIsMined) {
                 List<Transaction> transactions = transactionQueue.getTransactions(ClientConfig.transactionsInBlock);

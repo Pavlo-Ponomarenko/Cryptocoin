@@ -16,6 +16,7 @@ public class BlockController {
 
     @PostMapping("send_block")
     public ResponseEntity<Void> receiveBlock(@RequestBody Block block) {
+        blockProcessor.validateForeignBlock(block);
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
 }
