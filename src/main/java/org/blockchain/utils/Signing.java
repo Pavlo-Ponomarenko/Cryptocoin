@@ -1,7 +1,9 @@
 package org.blockchain.utils;
 
-import java.math.BigInteger;
+import java.security.PrivateKey;
+import java.security.PublicKey;
 import java.security.Signature;
+import java.util.Base64;
 
 public class Signing {
 
@@ -10,12 +12,11 @@ public class Signing {
     public static String sign(String message, String privateKey) {
         try {
             Signature s = Signature.getInstance(ALGORITHM,"SunEC");
-            byte[] keyBytes = (new BigInteger(privateKey, 16)).toByteArray();
-            PrivateKeyImpl key = new PrivateKeyImpl(keyBytes);
+            PrivateKey key = CryptoKeyGenerator.stringToPrivateKey(privateKey);
             s.initSign(key);
             s.update(message.getBytes());
             byte[] sig = s.sign();
-            return (new BigInteger(sig)).toString(16);
+            return Base64.getEncoder().encodeToString(sig);
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
@@ -24,11 +25,10 @@ public class Signing {
     public static boolean verify(String signature, String message, String publicKey) {
         try {
             Signature s = Signature.getInstance(ALGORITHM,"SunEC");
-            byte[] keyBytes = (new BigInteger(publicKey, 16)).toByteArray();
-            PublicKeyImpl key = new PublicKeyImpl(keyBytes);
+            PublicKey key = CryptoKeyGenerator.stringToPublicKey(publicKey);
             s.initVerify(key);
             s.update(message.getBytes());
-            return s.verify((new BigInteger(signature, 16)).toByteArray());
+            return s.verify(Base64.getDecoder().decode(signature));
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
