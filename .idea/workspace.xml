@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9abbfd5-fe0d-4df5-8400-cd2d7de83b53" name="Changes" comment="Input parameters processing fix">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/db/changelog/init_blockchain.xml" afterDir="false" />
+    <list default="true" id="c9abbfd5-fe0d-4df5-8400-cd2d7de83b53" name="Changes" comment="Accounting system implementation">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/controllers/CryptographyController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/client/BlockProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/client/BlockProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/config/ClientConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/config/ClientConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/controllers/BlockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/controllers/BlockController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/services/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/services/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/CryptoKeyPair.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/dtos/CryptoKeyPair.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/services/TransactionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/services/TransactionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +19,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="Liquibase Changelog" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -130,7 +126,8 @@
       <workItem from="1685041066857" duration="4535000" />
       <workItem from="1685201342705" duration="3969000" />
       <workItem from="1685220637028" duration="235000" />
-      <workItem from="1685455313155" duration="14213000" />
+      <workItem from="1685455313155" duration="14289000" />
+      <workItem from="1685600832594" duration="2285000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1675757190021</created>
@@ -202,7 +199,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685521682558</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Accounting system implementation">
+      <created>1685564718603</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1685564718603</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,6 +234,7 @@
     <MESSAGE value="Transactions processing" />
     <MESSAGE value="First demo" />
     <MESSAGE value="Input parameters processing fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Input parameters processing fix" />
+    <MESSAGE value="Accounting system implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Accounting system implementation" />
   </component>
 </project>

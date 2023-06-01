@@ -24,4 +24,9 @@ public class CryptoKeyPair {
     public void setPublicKey(String publicKey) {
         this.publicKey = publicKey;
     }
+
+    @Override
+    public String toString() {
+        return privateKey + " " + publicKey;
+    }
 }

@@ -7,7 +7,6 @@ import org.blockchain.dtos.VIN;
 import org.blockchain.dtos.VOUT;
 import org.blockchain.entities.TransactionRecord;
 import org.blockchain.entities.VOUTRecord;
-import org.blockchain.repository.AccountRepository;
 import org.blockchain.repository.FreeVOUTRepository;
 import org.blockchain.repository.TransactionRepository;
 import org.blockchain.utils.Signing;
@@ -24,8 +23,6 @@ public class TransactionService {
     private TransactionRepository transactionRepository;
     @Autowired
     private FreeVOUTRepository freeVOUTRepository;
-    @Autowired
-    private AccountRepository accountRepository;
     @Autowired
     private TransactionConverter transactionConverter;
 

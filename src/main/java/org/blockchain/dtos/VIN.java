@@ -2,8 +2,6 @@ package org.blockchain.dtos;
 
 import org.blockchain.utils.HashGenerator;
 
-import java.util.Objects;
-
 public class VIN implements Hashable {
     private String hash;
     private Integer index;
