@@ -5,6 +5,28 @@
                    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <changeSet id="init_blockchain" author="admin">
-
+        <insert tableName="blocks">
+            <column name="hash" value="first_primal_block"/>
+            <column name="previous_hash" value=""/>
+            <column name="merkle_root" value=""/>
+            <column name="time_stamp" value="2023-06-03"/>
+            <column name="nonce" value="0"/>
+        </insert>
+        <insert tableName="blocks">
+            <column name="hash" value="second_primal_block"/>
+            <column name="previous_hash" value="first_primal_block"/>
+            <column name="merkle_root" value=""/>
+            <column name="time_stamp" value="2023-06-03"/>
+            <column name="nonce" value="0"/>
+        </insert>
+        <insert tableName="transactions">
+            <column name="hash" value="coins_emission"/>
+            <column name="block_id" value="first_primal_block"/>
+        </insert>
+        <insert tableName="vout">
+            <column name="value" valueNumeric="100"/>
+            <column name="address" value="MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEHZTBnORFH+c8a3fjAXPdE86379xDE6mJCTlVLe9GoRwztCjTvHYg3669O9zaIfcByRtd1ue7knU0bQxlgepUPg=="/>
+            <column name="transaction_id" value="coins_emission"/>
+        </insert>
     </changeSet>
 </databaseChangeLog>
