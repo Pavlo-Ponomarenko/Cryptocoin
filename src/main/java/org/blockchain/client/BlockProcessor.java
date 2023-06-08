@@ -76,9 +76,6 @@ public class BlockProcessor {
             if (transactionQueue.getSize() >= ClientConfig.transactionsInBlock && blockIsMined) {
                 List<Transaction> transactions = transactionQueue.getTransactions(ClientConfig.transactionsInBlock);
                 transactionsProcessing = transactions;
-                if (!verifyTransactions(transactions)) {
-                    continue;
-                }
                 Block block = new Block();
                 block.setPreviousHash(blockService.getPreviousBlock().getHash());
                 block.setMerkleRoot(transactions);
@@ -86,6 +83,7 @@ public class BlockProcessor {
                 block.setTimeStamp(dateConverter.fromEntityToDTO(LocalDateTime.now()));
                 String baseHash = createBaseHash(block);
                 int miningResult = -1;
+                System.out.println("Mining started");
                 for (int nonce = 0; nonce <= MAX_NONCE && blockIsMined; nonce++) {
                     String hash = HashGenerator.genHash256(baseHash + nonce);
                     BigInteger numRepr = new BigInteger(hash, 16).abs();

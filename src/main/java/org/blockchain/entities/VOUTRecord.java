@@ -15,13 +15,14 @@ public class VOUTRecord {
             strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
             parameters = {
                     @Parameter(name = "sequence_name", value = "vout_sequence"),
-                    @Parameter(name = "initial_value", value = "1"),
+                    @Parameter(name = "initial_value", value = "2"),
                     @Parameter(name = "increment_size", value = "1")
             }
     )
     private Long id;
     private Long value;
     private String address;
+    private String transactionHash;
 
     public VOUTRecord() {
     }
@@ -54,5 +55,23 @@ public class VOUTRecord {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "VOUTRecord{" +
+                "id=" + id +
+                ", value=" + value +
+                ", address='" + address + '\'' +
+                ", transactionHash='" + transactionHash + '\'' +
+                '}';
+    }
+
+    public String getTransactionHash() {
+        return transactionHash;
+    }
+
+    public void setTransactionHash(String transactionHash) {
+        this.transactionHash = transactionHash;
     }
 }

@@ -2,21 +2,23 @@ package org.blockchain.entities;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "transactions")
 public class TransactionRecord {
     @Id
     private String hash;
-    @OneToMany
-    private List<VINRecord> vins;
-    @OneToMany
+    @OneToMany(mappedBy = "hash", fetch = FetchType.EAGER)
+    private Set<VINRecord> vins;
+    @OneToMany(mappedBy = "transactionHash", fetch = FetchType.EAGER)
     private List<VOUTRecord> vouts;
+    private String blockHash;
 
     public TransactionRecord() {
     }
 
-    public TransactionRecord(String hash, List<VINRecord> vins, List<VOUTRecord> vouts) {
+    public TransactionRecord(String hash, Set<VINRecord> vins, List<VOUTRecord> vouts) {
         this.hash = hash;
         this.vins = vins;
         this.vouts = vouts;
@@ -30,11 +32,11 @@ public class TransactionRecord {
         return hash;
     }
 
-    public List<VINRecord> getVins() {
+    public Set<VINRecord> getVins() {
         return vins;
     }
 
-    public void setVins(List<VINRecord> vins) {
+    public void setVins(Set<VINRecord> vins) {
         this.vins = vins;
     }
 
@@ -44,5 +46,23 @@ public class TransactionRecord {
 
     public void setVouts(List<VOUTRecord> vouts) {
         this.vouts = vouts;
+    }
+
+    @Override
+    public String toString() {
+        return "TransactionRecord{" +
+                "hash='" + hash + '\'' +
+                ", vins=" + vins +
+                ", vouts=" + vouts +
+                ", blockHash='" + blockHash + '\'' +
+                '}';
+    }
+
+    public String getBlockHash() {
+        return blockHash;
+    }
+
+    public void setBlockHash(String blockHash) {
+        this.blockHash = blockHash;
     }
 }

@@ -24,9 +24,9 @@ public class Leaf {
     }
 
     public void connect(Leaf leaf) {
-        if (rightLeaf != null) {
+        if (rightLeaf == null) {
             rightLeaf = leaf;
-        } else if (leftLeaf != null) {
+        } else if (leftLeaf == null) {
             leftLeaf = leaf;
         }
     }
@@ -52,9 +52,9 @@ public class Leaf {
     private Map.Entry<Integer, Block> lookForValidatedLeaf(Leaf leaf) {
         Map.Entry<Integer, Block> result = leaf.getValidatedLeaf();
         if (result.getKey() == 2) {
-            return new AbstractMap.SimpleEntry<>(2, block);
+            return result;
         } else {
-            return new AbstractMap.SimpleEntry<>(result.getKey() + 1, null);
+            return new AbstractMap.SimpleEntry<>(result.getKey() + 1, block);
         }
     }
 
@@ -66,5 +66,23 @@ public class Leaf {
             return lookForValidatedLeaf(leftLeaf);
         }
         return new AbstractMap.SimpleEntry<>(0, null);
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = new StringBuilder("Leaf{");
+        stringBuilder.append("Hash:").append(block.getHash()).append(",");
+        if (rightLeaf == null) {
+            stringBuilder.append("Right:null,");
+        } else {
+            stringBuilder.append("Right:").append(rightLeaf).append(",");
+        }
+        if (leftLeaf == null) {
+            stringBuilder.append("Left:null");
+        } else {
+            stringBuilder.append("Left:").append(leftLeaf);
+        }
+        stringBuilder.append("}");
+        return stringBuilder.toString();
     }
 }

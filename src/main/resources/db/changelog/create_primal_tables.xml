@@ -11,14 +11,14 @@
             </column>
             <column name="previous_hash" type="varchar(255)"/>
             <column name="merkle_root" type="varchar(255)"/>
-            <column name="time_stamp" type="date"/>
+            <column name="time_stamp" type="TIMESTAMP"/>
             <column name="nonce" type="bigint"/>
         </createTable>
         <createTable tableName="transactions">
             <column name="hash" type="varchar(255)">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="block_id" type="varchar(255)"/>
+            <column name="block_hash" type="varchar(255)"/>
         </createTable>
         <createTable tableName="vin">
             <column name="id" type="bigint" autoIncrement="true">
@@ -28,7 +28,6 @@
             <column name="index" type="bigint"/>
             <column name="signature" type="varchar(255)"/>
             <column name="key" type="varchar(255)"/>
-            <column name="transaction_id" type="varchar(255)"/>
         </createTable>
         <createTable tableName="vout">
             <column name="id" type="bigint" autoIncrement="true">
@@ -36,7 +35,7 @@
             </column>
             <column name="value" type="bigint"/>
             <column name="address" type="varchar(255)"/>
-            <column name="transaction_id" type="varchar(255)"/>
+            <column name="transaction_hash" type="varchar(255)"/>
         </createTable>
         <createTable tableName="free_vout">
             <column name="id" type="bigint">

@@ -38,4 +38,9 @@ public class ConflictTree {
     public Block getRootBlock() {
         return root.getBlock();
     }
+
+    @Override
+    public String toString() {
+        return root.toString();
+    }
 }

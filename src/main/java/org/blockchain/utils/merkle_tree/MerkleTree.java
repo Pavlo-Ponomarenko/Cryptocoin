@@ -11,7 +11,11 @@ public class MerkleTree<T extends Hashable> {
     private BranchNode root;
 
     public MerkleTree(List<T> hashableItems) {
-        buildTree(hashableItems);
+        if (hashableItems == null) {
+            root = new BranchNode("");
+        } else {
+            buildTree(hashableItems);
+        }
     }
 
     public String buildTree(List<T> hashableItems) {

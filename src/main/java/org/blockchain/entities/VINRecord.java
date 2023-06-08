@@ -76,4 +76,15 @@ public class VINRecord {
     public void setKey(String key) {
         this.key = key;
     }
+
+    @Override
+    public String toString() {
+        return "VINRecord{" +
+                "id=" + id +
+                ", hash='" + hash + '\'' +
+                ", index=" + index +
+                ", signature='" + signature + '\'' +
+                ", key='" + key + '\'' +
+                '}';
+    }
 }

@@ -47,28 +47,32 @@ public class AccountService {
 
     public void updateAccounts() {
         BlockRecord newActualBlock = blockService.getNewActualBlock();
+        System.out.println("Actual block: " + newActualBlock);
         if (newActualBlock != null) {
             List<FreeVOUTRecord> newFreeVOUTs = getNewFreeVOUTs(newActualBlock).stream().map(FreeVOUTRecord::new).toList();
             freeVOUTRepository.saveAll(newFreeVOUTs);
             for (FreeVOUTRecord freeVOUT : newFreeVOUTs) {
-                VOUTRecord vout = voutRepository.getById(freeVOUT.getId());
+                VOUTRecord vout = voutRepository.findById(freeVOUT.getId()).get();
                 String address = vout.getAddress();
                 AccountRecord accountRecord = new AccountRecord(address, 0l);
                 if (accountRepository.existsById(address)) {
-                    accountRecord.setValue(accountRepository.getById(address).getValue());
+                    accountRecord.setValue(accountRepository.findById(address).get().getValue());
                 }
                 accountRecord.setValue(accountRecord.getValue() + vout.getValue());
                 accountRepository.save(accountRecord);
             }
+            System.out.println("New vouts are saved");
             List<FreeVOUTRecord> usedVOUTs = getUsedVOUTs(newActualBlock).stream().map(FreeVOUTRecord::new).toList();
             freeVOUTRepository.deleteAll(usedVOUTs);
+            System.out.println("Used vouts are removed");
             for (FreeVOUTRecord usedVOUT : usedVOUTs) {
-                VOUTRecord vout = voutRepository.getById(usedVOUT.getId());
+                VOUTRecord vout = voutRepository.findById(usedVOUT.getId()).get();
                 String address = vout.getAddress();
-                AccountRecord accountRecord = accountRepository.getById(address);
+                AccountRecord accountRecord = accountRepository.findById(address).get();
                 accountRecord.setValue(accountRecord.getValue() - vout.getValue());
                 accountRepository.save(accountRecord);
             }
+            System.out.println("OOOOK");
         }
     }
 }

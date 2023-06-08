@@ -14,7 +14,7 @@ public class BlockRecord {
     private String merkleRoot;
     private LocalDateTime timeStamp;
     private Integer nonce;
-    @OneToMany
+    @OneToMany(mappedBy = "blockHash", fetch = FetchType.EAGER)
     private List<TransactionRecord> transactions;
 
     public BlockRecord() {
@@ -79,5 +79,17 @@ public class BlockRecord {
 
     public void setTransactions(List<TransactionRecord> transactions) {
         this.transactions = transactions;
+    }
+
+    @Override
+    public String toString() {
+        return "BlockRecord{" +
+                "hash='" + hash + '\'' +
+                ", previousHash='" + previousHash + '\'' +
+                ", merkleRoot='" + merkleRoot + '\'' +
+                ", timeStamp=" + timeStamp +
+                ", nonce=" + nonce +
+                ", transactions=" + transactions +
+                '}';
     }
 }

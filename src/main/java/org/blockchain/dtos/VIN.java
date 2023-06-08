@@ -41,7 +41,7 @@ public class VIN implements Hashable {
 
     @Override
     public String genHash() {
-        return HashGenerator.genHash256(hash + index.toString() + signature.genHash());
+        return HashGenerator.genHash256(hash + index.toString());
     }
 
     @Override

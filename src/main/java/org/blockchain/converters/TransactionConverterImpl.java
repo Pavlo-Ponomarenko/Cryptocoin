@@ -10,7 +10,9 @@ import org.blockchain.entities.VOUTRecord;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 public class TransactionConverterImpl implements TransactionConverter {
@@ -19,7 +21,7 @@ public class TransactionConverterImpl implements TransactionConverter {
     public TransactionRecord fromDTOtoEntity(Transaction transaction) {
         TransactionRecord transactionRecord = new TransactionRecord();
         transactionRecord.setHash(transaction.genHash());
-        List<VINRecord> vinRecords = new ArrayList<>();
+        Set<VINRecord> vinRecords = new HashSet<>();
         for (VIN vin : transaction.getVins()) {
             SignatureDTO signatureDTO = vin.getSignature();
             vinRecords.add(new VINRecord(null, vin.getHash(), vin.getIndex(), signatureDTO.getSignature(), signatureDTO.getKey()));
