@@ -72,7 +72,6 @@ public class AccountService {
                 accountRecord.setValue(accountRecord.getValue() - vout.getValue());
                 accountRepository.save(accountRecord);
             }
-            System.out.println("OOOOK");
         }
     }
 }

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <script type = "text/javascript" src = "/jquery.js"></script>
+    <script type = "text/javascript" src = "/wallet.js"></script>
+    <title>Wallet</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">CRYPTOCOIN</a>
+    </div>
+</nav>
+<div style="margin-top: 70px; border-bottom: 1px solid black; padding: 5px;">
+    <p style="font-size: large"><b>Current address:</b></p><p th:text="${address}" style="color: forestgreen"></p>
+</div>
+<div class="container-fluid" style="margin-top: 10px">
+    <div class="row">
+        <!-- First Part: Form -->
+        <div class="col-md-4" style="overflow-y: auto; max-height: 600px;">
+            <h3>Form</h3>
+            <form>
+                <div class="mb-3">
+                    <label for="hash" class="form-label">Hash of Input Transaction</label>
+                    <input type="text" class="form-control" id="hash">
+                </div>
+                <div class="mb-3">
+                    <label for="index" class="form-label">Index of the Output</label>
+                    <input type="text" class="form-control" id="index">
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address of the Receiver</label>
+                    <input type="text" class="form-control" id="address">
+                </div>
+                <div class="mb-3">
+                    <label for="value" class="form-label">Value</label>
+                    <input type="text" class="form-control" id="value">
+                </div>
+                <div class="mb-3">
+                    <label for="privateKey" class="form-label">Private key</label>
+                    <input type="text" class="form-control" id="privateKey">
+                </div>
+                <p id="sign_status" style="color: red">Unsigned</p>
+                <button type="button" class="btn btn-primary" onclick="sign()">Sign</button>
+                <button id="submit_button" type="button" class="btn btn-primary" onclick="submit()" disabled>Submit</button>
+            </form>
+        </div>
+
+        <!-- Second Part: List with Div Blocks and Tables -->
+        <div class="col-md-4" style="overflow-y: auto; max-height: 600px;">
+            <h3>Blockchain</h3>
+            <div style="border: 2px solid black;">
+                <div class="border p-3 mb-3">
+                    <h5>Table "vin"</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Hash</th>
+                            <th scope="col">Index</th>
+                            <th scope="col">Signature</th>
+                            <th scope="col">Key</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Hash 1</td>
+                            <td>1</td>
+                            <td>Signature 1</td>
+                            <td>Key 1</td>
+                        </tr>
+                        <tr>
+                            <td>Hash 2</td>
+                            <td>2</td>
+                            <td>Signature 2</td>
+                            <td>Key 2</td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="border p-3">
+                    <h5>Table "vout"</h5>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">Value</th>
+                            <th scope="col">Address</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>10</td>
+                            <td>Address 1</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Address 2</td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Third Part: Table -->
+        <div class="col-md-4" style="overflow-y: auto; max-height: 400px;">
+            <h3>Table</h3>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Address</th>
+                    <th scope="col">Count</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Address 1</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Address 2</td>
+                    <td>3</td>
+                </tr>
+                <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
