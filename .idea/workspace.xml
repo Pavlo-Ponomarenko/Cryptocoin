@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c9abbfd5-fe0d-4df5-8400-cd2d7de83b53" name="Changes" comment="Build 1.0">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/controllers/WalletController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/menu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/wallet.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Menu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/NewKeys.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Wallet.html" afterDir="false" />
+    <list default="true" id="c9abbfd5-fe0d-4df5-8400-cd2d7de83b53" name="Changes" comment="First templates">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/services/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/services/AccountService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/controllers/WalletController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/controllers/WalletController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/converters/BlockConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/converters/BlockConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/blockchain/converters/BlockConverterImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/blockchain/converters/BlockConverterImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/wallet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/wallet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Wallet.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Wallet.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +23,8 @@
         <option value="Interface" />
         <option value="Liquibase Changelog" />
         <option value="HTML File" />
-        <option value="Class" />
         <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -152,6 +149,13 @@
       <workItem from="1686293832367" duration="17318000" />
       <workItem from="1686511736226" duration="3525000" />
       <workItem from="1686544895629" duration="13802000" />
+      <workItem from="1686636085982" duration="9266000" />
+      <workItem from="1686713936935" duration="3037000" />
+      <workItem from="1686813951910" duration="1925000" />
+      <workItem from="1686990114277" duration="7906000" />
+      <workItem from="1687109796281" duration="10715000" />
+      <workItem from="1687160677744" duration="10028000" />
+      <workItem from="1687240205636" duration="775000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1675757190021</created>
@@ -258,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686218509149</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="First templates">
+      <created>1686636189527</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1686636189527</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,6 +302,7 @@
     <MESSAGE value="Cryptography fix" />
     <MESSAGE value="Database initialisation" />
     <MESSAGE value="Build 1.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Build 1.0" />
+    <MESSAGE value="First templates" />
+    <option name="LAST_COMMIT_MESSAGE" value="First templates" />
   </component>
 </project>

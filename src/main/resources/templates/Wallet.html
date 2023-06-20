@@ -18,7 +18,7 @@
     </div>
 </nav>
 <div style="margin-top: 70px; border-bottom: 1px solid black; padding: 5px;">
-    <p style="font-size: large"><b>Current address:</b></p><p th:text="${address}" style="color: forestgreen"></p>
+    <p style="font-size: large"><b>Current address:</b></p><p id="current_address" th:text="${address}" style="color: forestgreen"></p>
 </div>
 <div class="container-fluid" style="margin-top: 10px">
     <div class="row">
@@ -48,16 +48,18 @@
                 </div>
                 <p id="sign_status" style="color: red">Unsigned</p>
                 <button type="button" class="btn btn-primary" onclick="sign()">Sign</button>
-                <button id="submit_button" type="button" class="btn btn-primary" onclick="submit()" disabled>Submit</button>
+                <button id="submit_button" type="button" class="btn btn-primary" onclick="sendTransaction()" disabled>Send</button>
             </form>
         </div>
 
         <!-- Second Part: List with Div Blocks and Tables -->
         <div class="col-md-4" style="overflow-y: auto; max-height: 600px;">
             <h3>Blockchain</h3>
-            <div style="border: 2px solid black;">
+            <div th:each="block : ${blocks}" style="border: 2px solid black;">
                 <div class="border p-3 mb-3">
-                    <h5>Table "vin"</h5>
+                    <h6>Hash: </h6><p th:text="${block.hash}" ></p>
+                    <h6>Previous hash: </h6><p th:text="${block.previousHash}"></p>
+                    <h6>Table "vin"</h6>
                     <table class="table table-striped">
                         <thead>
                         <tr>
@@ -68,24 +70,19 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>Hash 1</td>
-                            <td>1</td>
-                            <td>Signature 1</td>
-                            <td>Key 1</td>
-                        </tr>
-                        <tr>
-                            <td>Hash 2</td>
-                            <td>2</td>
-                            <td>Signature 2</td>
-                            <td>Key 2</td>
-                        </tr>
-                        <!-- Add more rows as needed -->
+                        <div th:each="transaction : ${block.transactions}">
+                            <tr th:each="vin : ${transaction.vins}">
+                                <td th:utext="${vin.hash}" style="overflow: hidden; text-overflow: ellipsis; width: 100px; white-space: nowrap;"></td>
+                                <td th:utext="${vin.index}"></td>
+                                <td th:utext="${vin.signature.signature}" style="overflow: hidden; text-overflow: ellipsis; width: 100px; white-space: nowrap;"></td>
+                                <td th:utext="${vin.signature.key}" style="overflow: hidden; text-overflow: ellipsis; width: 100px; white-space: nowrap;"></td>
+                            </tr>
+                        </div>
                         </tbody>
                     </table>
                 </div>
                 <div class="border p-3">
-                    <h5>Table "vout"</h5>
+                    <h6>Table "vout"</h6>
                     <table class="table table-striped">
                         <thead>
                         <tr>
@@ -94,14 +91,12 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>10</td>
-                            <td>Address 1</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>Address 2</td>
-                        </tr>
+                        <div th:each="transaction : ${block.transactions}">
+                            <tr th:each="vout : ${transaction.vouts}">
+                                <td th:utext="${vout.value}" style="overflow: hidden; text-overflow: ellipsis"></td>
+                                <td th:utext="${vout.address}" style="overflow: hidden; text-overflow: ellipsis; max-width: 100px; white-space: nowrap;"></td>
+                            </tr>
+                        </div>
                         <!-- Add more rows as needed -->
                         </tbody>
                     </table>
@@ -110,23 +105,19 @@
         </div>
 
         <!-- Third Part: Table -->
-        <div class="col-md-4" style="overflow-y: auto; max-height: 400px;">
-            <h3>Table</h3>
+        <div class="col-md-4" style="overflow-y: auto; max-height: 600px;">
+            <h3>Accounts</h3>
             <table class="table table-striped">
                 <thead>
                 <tr>
-                    <th scope="col">Address</th>
                     <th scope="col">Count</th>
+                    <th scope="col">Address</th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>Address 1</td>
-                    <td>5</td>
-                </tr>
-                <tr>
-                    <td>Address 2</td>
-                    <td>3</td>
+                <tr th:each="account : ${accounts}">
+                    <td th:utext="${account.value}" style="overflow: hidden; text-overflow: ellipsis; width: 100px; white-space: nowrap;"></td>
+                    <td th:utext="${account.key}"></td>
                 </tr>
                 <!-- Add more rows as needed -->
                 </tbody>

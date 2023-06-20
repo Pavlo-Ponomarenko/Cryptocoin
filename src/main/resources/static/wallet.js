@@ -5,9 +5,7 @@ function form_transaction(sign) {
     var index = document.getElementById('index').value;
     var address = document.getElementById('address').value;
     var value = document.getElementById('value').value;
-    var privateKey = document.getElementById('privateKey').value;
     var transaction = {
-        privateKey: privateKey.trim(),
         vins: [
             {
                 hash: hash.trim(),
@@ -26,22 +24,40 @@ function form_transaction(sign) {
 }
 
 function sign() {
+    var privateKey = document.getElementById('privateKey').value;
     var transaction = form_transaction(null);
-    var answer = $.ajax({
+    var signingForm = {
+        privateKey: privateKey,
+        transaction: transaction
+    };
+    $.ajax({
         type: "POST",
         url: 'http://localhost:8080/sign_transaction',
-        data: JSON.stringify(transaction),
+        data: JSON.stringify(signingForm),
+        async: false,
+        dataType: 'text',
+        success: function(response) {
+            signature = response;
+            document.getElementById('sign_status').textContent = 'Signed';
+            document.getElementById('sign_status').style.color = 'forestgreen';
+            document.getElementById('submit_button').disabled = false;
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert('Error: ' + textStatus + errorThrown);
+        },
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         }});
-    signature = answer.responseText;
-    document.getElementById('sign_status').style.color = 'forestgreen';
-    document.getElementById('submit_button').disabled = false;
 }
 
-function submit() {
-    var transaction = form_transaction(signature);
+function sendTransaction() {
+    var key = document.getElementById('current_address').textContent;
+    var signDTO = {
+        signature: signature,
+        key: key
+    }
+    var transaction = form_transaction(signDTO);
     $.ajax({
         type: "POST",
         url: 'http://localhost:8080/send_transaction',
@@ -50,5 +66,4 @@ function submit() {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         }});
-    document.location = 'http://localhost:8080/wallet';
 }

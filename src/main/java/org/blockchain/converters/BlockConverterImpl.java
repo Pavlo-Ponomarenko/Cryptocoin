@@ -51,4 +51,9 @@ public class BlockConverterImpl implements BlockConverter {
         block.setNonce(blockRecord.getNonce());
         return block;
     }
+
+    @Override
+    public List<Block> entitiesToBlocks(List<BlockRecord> blockRecords) {
+        return blockRecords.stream().map(this::fromEntityToDTO).toList();
+    }
 }
